@@ -1,0 +1,15 @@
+<body>
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <img id="target-image" src="./target-image.jpg" />
+      <a-asset-item id="3d-model" src="./model.glb"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-plane src="#target-image" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+      <a-gltf-model src="#3d-model" position="0 0 0.1" scale="0.005 0.005 0.005"></a-gltf-model>
+    </a-entity>
+  </a-scene>
+</body>
