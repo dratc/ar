@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
     <title>WebAR Test</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
@@ -11,9 +10,8 @@
   </head>
   <body>
     <a-scene embedded arjs>
-      <!-- Marker -->
       <a-marker preset="hiro">
-        <!-- Online GLTF Model -->
+        <!-- Online 3D model link -->
         <a-entity 
           gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Duck/glTF/Duck.gltf"
           scale="0.5 0.5 0.5"
