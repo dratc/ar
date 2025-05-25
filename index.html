@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WebAR Test</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
-    <style>
-      body, html { margin: 0; overflow: hidden; width: 100%; height: 100%; }
-    </style>
-  </head>
-  <body>
-    <a-scene embedded arjs>
-      <a-marker preset="hiro">
-        <!-- Online 3D model link -->
-        <a-entity 
-          gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Duck/glTF/Duck.gltf"
-          scale="0.5 0.5 0.5"
-          position="0 0 0">
-        </a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Proxy Viewer</title>
+</head>
+<body>
+  <div id="content">লোড হচ্ছে...</div>
+
+  <script>
+    const path = window.location.pathname;
+    const proxyUrl = 'https://dom.growthjourney-bd.com/restaurant/leukapizza?' + path;
+
+    fetch(proxyUrl)
+      .then(res => {
+        if (!res.ok) throw new Error("Failed to load: " + res.status);
+        return res.text();
+      })
+      .then(html => {
+        document.open();
+        document.write(html);
+        document.close();
+      })
+      .catch(err => {
+        document.getElementById('content').innerText = 'ত্রুটি: ' + err.message;
+      });
+  </script>
+</body>
 </html>
